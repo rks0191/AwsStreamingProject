@@ -1,0 +1,8 @@
+[{
+"streamName": "deliveries",
+"numberOfShards": 2
+},{
+"streamName": "matches",
+"numberOfShards": 2
+}
+]
