@@ -5,9 +5,8 @@ import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
 import com.aws.credentials.Credentials;
 
 public abstract class KinesisClient {
-     String credentialsPath;
     public AmazonKinesis getKinesisClient(){
-        Credentials credentials = new Credentials(this.credentialsPath);
+        Credentials credentials = new Credentials();
         AmazonKinesis builder = AmazonKinesisClientBuilder.standard().withRegion(credentials.getRegion()).build();
         return builder;
     }

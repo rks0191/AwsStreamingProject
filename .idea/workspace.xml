@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5322f955-9ceb-447b-a924-924f0e6f1f90" name="Changes" comment="Initial Commit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5322f955-9ceb-447b-a924-924f0e6f1f90" name="Changes" comment="Add in the delete functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreamsDelete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aws/credentials/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aws/credentials/Credentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aws/io/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aws/io/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreamCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreamCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreams.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +64,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KinesisStreamCreator">
+  <component name="RunManager" selected="Application.KinesisStreamsDelete">
     <configuration name="KinesisProducer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aws.kinesis.streaming.KinesisProducer" />
       <module name="AwsStreamingProject" />
@@ -78,7 +84,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KinesisStreamCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="KinesisStreamsDelete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aws.kinesis.streams.KinesisStreamsDelete" />
+      <module name="AwsStreamingProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aws.kinesis.streams.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.aws.kinesis.streams.KinesisStreamCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aws.kinesis.streams.KinesisStreamCreator" />
       <module name="AwsStreamingProject" />
       <extension name="coverage">
@@ -93,8 +112,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.KinesisStreamCreator" />
+        <item itemvalue="Application.KinesisStreamsDelete" />
         <item itemvalue="Application.KinesisProducer" />
+        <item itemvalue="Application.com.aws.kinesis.streams.KinesisStreamCreator" />
       </list>
     </recent_temporary>
   </component>
@@ -114,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692100550300</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Remove the .idea">
+      <created>1692100838668</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692100838668</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +157,54 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Remove the .idea" />
+    <MESSAGE value="Add in the delete functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add in the delete functionality" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/aws/io/FileReader.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreams.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/aws/kinesis/streams/KinesisStreams.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.aws.kinesis.streaming/KinesisProducer.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

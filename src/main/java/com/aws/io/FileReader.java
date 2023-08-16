@@ -5,14 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-enum FileType{
-    DELIVERIES,
-    MATCHES
-}
 public class FileReader {
-    private Enum fType;
     public ArrayList<String> readLines(int numberOfLines) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("deliveries.csv")));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("deliveries.csv")));
         ArrayList<String> content = new ArrayList<>();
         for(int line=0; line <numberOfLines; line++){
             content.add(reader.readLine());

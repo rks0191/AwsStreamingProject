@@ -7,7 +7,7 @@ import com.aws.kinesis.streaming.KinesisClient;
 import java.util.Map;
 
 public class KinesisStreamCreator extends KinesisClient{
-    private String streamName = null;
+    private final String streamName;
     public KinesisStreamCreator(String streamName){
         this.streamName = streamName;
     }
@@ -20,10 +20,12 @@ public class KinesisStreamCreator extends KinesisClient{
             for(int streamCount =0 ; streamCount < streamConfiguration.size(); streamCount ++){
                 Configuration conf = streamConfiguration.get(streamCount);
                 CreateStreamResult result =amazonKinesis.createStream(conf.getStreamName(), conf.getStreamShardCount());
+                System.out.println(result);
             }
         } else{
             System.out.println(String.format("Creating a stream for %s", this.streamName));
             Configuration conf = streamConfiguration.get(this.streamName);
+            System.out.println(conf.toString());
             amazonKinesis.createStream(conf.getStreamName(), conf.getStreamShardCount());
         }
     }

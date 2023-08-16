@@ -17,7 +17,7 @@ public class KinesisProducer extends KinesisClient{
     public KinesisProducer(String streamName){
         this.streamName = streamName;
     }
-    public void pushRecordsToStream(ArrayList<String> lines, String configurationFilePath){
+    public void pushRecordsToStream(ArrayList<String> lines){
         PutRecordsRequest putRecordRequest = new PutRecordsRequest();
         putRecordRequest.setStreamName(this.streamName);
         ArrayList<PutRecordsRequestEntry> recordEntry = new ArrayList<>();
@@ -25,7 +25,7 @@ public class KinesisProducer extends KinesisClient{
             PutRecordsRequestEntry recordsRequestEntry = new PutRecordsRequestEntry();
             recordsRequestEntry.setData(ByteBuffer.wrap(lines.get(i).getBytes()));
             recordsRequestEntry.setPartitionKey(String.format("partition-%d", i%2));
-            recordEntry.add(new PutRecordsRequestEntry());
+            recordEntry.add(recordsRequestEntry);
         }
         putRecordRequest.setRecords(recordEntry);
         AmazonKinesis client = getKinesisClient();
@@ -38,8 +38,9 @@ public class KinesisProducer extends KinesisClient{
 
 
     public static void main(String[] args) throws IOException {
-        KinesisProducer producer = new KinesisProducer("deliveryStream");
+        KinesisProducer producer = new KinesisProducer("deliveries");
         FileReader reader = new FileReader();
-        producer.pushRecordsToStream(reader.readLines(Integer.parseInt(args[0])), args[1]);
+        ArrayList<String> lines = reader.readLines(Integer.parseInt(args[0]));
+        producer.pushRecordsToStream(lines);
     }
 }

@@ -8,23 +8,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 class Configuration{
-private String streamName;
-private int streamShardCount;
+private final String streamName;
+private final int numberOfShards;
 
     public int getStreamShardCount() {
-        return streamShardCount;
+        return this.numberOfShards;
     }
 
     public String getStreamName() {
-        return streamName;
+        return this.streamName;
     }
-
-    public void setStreamName(String streamName) {
+    public Configuration(String streamName, int streamShardCount){
         this.streamName = streamName;
+        this.numberOfShards = streamShardCount;
     }
 
-    public void setStreamShardCount(int streamShardCount) {
-        this.streamShardCount = streamShardCount;
+    @Override
+    public String toString() {
+        return String.format("Configuration(%s, %d)", this.streamName, this.numberOfShards);
     }
 }
 public class KinesisStreams {
@@ -34,12 +35,14 @@ public class KinesisStreams {
         String readerConfiguration = reader.readStreamConfiguration();
         try{
             Gson json = new Gson();
-            ArrayList <Configuration>conf = json.fromJson(readerConfiguration, ArrayList.class);
-            for(Configuration configuration: conf){
-                streamMap.put(configuration.getStreamName(),configuration);
+            ArrayList <Object>conf = json.fromJson(readerConfiguration, ArrayList.class);
+            for (Object object: conf){
+                Configuration configuration = json.fromJson(String.valueOf(object), Configuration.class);
+                streamMap.put(configuration.getStreamName(), configuration);
             }
         } catch(Exception e){
-            System.out.println("Invalid Json");
+            System.out.println(e.getMessage());
+            throw e;
         }
         return streamMap;
     }

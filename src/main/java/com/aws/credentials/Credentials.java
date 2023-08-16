@@ -2,10 +2,9 @@ package com.aws.credentials;
 
 
 public class Credentials {
-    private String credentialsFilePath;
-    private String region;
-    public  Credentials(String credentialsFilePath){
-        this.credentialsFilePath = credentialsFilePath;
+    private String region="us-east-1";
+    public  Credentials(){
+
     }
     public void setRegion(String region){
         this.region = region;
